@@ -92,7 +92,13 @@ public class emailService {
 
     private String buildPrompt(EmailRequest emailRequest) {
    StringBuilder  prompt = new StringBuilder();
-   prompt.append("Generate a professional email reply  for the following email content,it should be to the point and impressive , please don't generate  a subject line ");
+   prompt.append(
+           """ 
+           Reply based on the tone set by the client, make sure the reply is impressive .
+           Never generate a subject line .
+           """
+
+           );
 if(emailRequest.getTone() !=  null &&  !emailRequest.getTone().isEmpty()){
  prompt.append("Use a ").append(emailRequest.getTone()).append("Tone.");
 }
